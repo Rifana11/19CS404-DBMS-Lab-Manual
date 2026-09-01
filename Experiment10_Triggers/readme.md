@@ -32,8 +32,59 @@ END;
 
 **Expected Output:**
 - A new entry is added to the `employee_log` table each time a new record is inserted into the `employees` table.
+----
+## query:
+```
+SET SERVEROUTPUT ON;
 
----
+
+CREATE TABLE employees (
+    emp_id NUMBER,
+    emp_name VARCHAR2(50),
+    salary NUMBER
+);
+
+
+CREATE TABLE employee_log (
+    emp_id NUMBER,
+    emp_name VARCHAR2(50),
+    salary NUMBER,
+    log_date DATE
+);
+
+-- 3. Create trigger
+CREATE OR REPLACE TRIGGER employee_insert_log
+AFTER INSERT ON employees
+FOR EACH ROW
+BEGIN
+    INSERT INTO employee_log
+    (emp_id, emp_name, salary, log_date)
+    VALUES
+    (:NEW.emp_id, :NEW.emp_name, :NEW.salary, SYSDATE);
+END;
+/
+
+INSERT INTO employees
+VALUES (101, 'Ravi', 25000);
+
+INSERT INTO employees
+VALUES (102, 'Priya', 30000);
+
+INSERT INTO employees
+VALUES (103, 'Arun', 28000);
+
+-- 5. Display employees table
+SELECT * FROM employees;
+
+-- 6. Display employee_log table
+SELECT * FROM employee_log;
+
+-- 7. Commit changes
+COMMIT;
+```
+## output
+
+<img width="1062" height="400" alt="image" src="https://github.com/user-attachments/assets/3bb0860e-80b1-4b7f-aa4b-967e20e8a94e" />
 
 ## 2. Write a trigger to prevent deletion of records from a sensitive table.
 **Steps:**
