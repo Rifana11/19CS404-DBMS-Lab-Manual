@@ -36,125 +36,158 @@ GROUP BY column_name
 HAVING condition;
 ```
 
-**Question 1**
---
--- Paste Question 1 here
+## Question 1:
 
-```sql
--- Paste your SQL code below for Question 1
+Find the minimum salary of all staff members.
+
+```
+SELECT MIN(salary) AS minimum_salary
+FROM staff;
+
 ```
 
-**Output:**
+## Output:
 
-![Output1](output.png)
+<img width="877" height="367" alt="image" src="https://github.com/user-attachments/assets/81e61a6e-840b-4718-8877-9912ede1288a" />
 
-**Question 2**
----
--- Paste Question 2 here
 
-```sql
--- Paste your SQL code below for Question 2
+## Question 2:
+
+Find the maximum salary of all staff members.
+
+```
+SELECT MAX(salary) AS maximum_salary
+FROM staff;
+
 ```
 
-**Output:**
+## Output:
 
-![Output2](output.png)
+<img width="875" height="425" alt="image" src="https://github.com/user-attachments/assets/456a7ed9-5602-42df-b391-c0e389293913" />
 
-**Question 3**
----
--- Paste Question 3 here
 
-```sql
--- Paste your SQL code below for Question 3
+## Question 3:
+
+Find the total salary of all staff members.
+
+```
+SELECT SUM(salary) AS total_salary
+FROM staff;
+
 ```
 
-**Output:**
+## Output:
 
-![Output3](output.png)
+<img width="898" height="355" alt="image" src="https://github.com/user-attachments/assets/0ce9b96e-9cb2-43ca-bc5f-97fa01fbb033" />
 
-**Question 4**
----
--- Paste Question 4 here
 
-```sql
--- Paste your SQL code below for Question 4
+## Question 4:
+
+Find the average salary of all staff members.
+
+```
+SELECT AVG(salary) AS average_salary
+FROM staff;
 ```
 
-**Output:**
+## Output:
 
-![Output4](output.png)
+<img width="762" height="412" alt="image" src="https://github.com/user-attachments/assets/5aa14133-4491-4cd0-b5a2-a543b90875a1" />
 
-**Question 5**
----
--- Paste Question 5 here
+## Question 5:
 
-```sql
--- Paste your SQL code below for Question 5
+Find the total number of staff members.
+
+```
+SELECT COUNT(*) AS total_staff
+FROM staff;
+
 ```
 
-**Output:**
+## Output:
 
-![Output5](output.png)
+<img width="852" height="402" alt="image" src="https://github.com/user-attachments/assets/9ca0af21-c454-44e5-9f13-a04825daa986" />
 
-**Question 6**
----
--- Paste Question 6 here
 
-```sql
--- Paste your SQL code below for Question 6
+## Question 6:
+
+Find the number of staff members in each department.
+
+
+```
+SELECT department, COUNT(*) AS staff_count
+FROM staff
+GROUP BY department;
+
 ```
 
-**Output:**
+## Output:
 
-![Output6](output.png)
+<img width="842" height="391" alt="image" src="https://github.com/user-attachments/assets/ee1992b0-f966-4f74-a4fd-4ae80f23802e" />
 
-**Question 7**
----
--- Paste Question 7 here
+## Question 7:
 
-```sql
--- Paste your SQL code below for Question 7
+Find the total salary paid in each department.
+
+```
+SELECT department, SUM(salary) AS total_salary
+FROM staff
+GROUP BY department;
+
 ```
 
-**Output:**
+## Output:
 
-![Output7](output.png)
+<img width="882" height="393" alt="image" src="https://github.com/user-attachments/assets/750b4716-9719-43e9-bff4-abf92476b336" />
 
-**Question 8**
----
--- Paste Question 8 here
 
-```sql
--- Paste your SQL code below for Question 8
+## Question 8:
+
+Find the average salary in each department.
+
+```
+SELECT department, AVG(salary) AS average_salary
+FROM staff
+GROUP BY department;
+
 ```
 
-**Output:**
+## Output:
 
-![Output8](output.png)
+<img width="901" height="355" alt="image" src="https://github.com/user-attachments/assets/07d340a9-e281-4761-8114-1020b69412e7" />
 
-**Question 9**
----
--- Paste Question 9 here
+## Question 9:
 
-```sql
--- Paste your SQL code below for Question 9
+Display departments having more than 2 staff members.
+
+```
+SELECT department, COUNT(*) AS staff_count
+FROM staff
+GROUP BY department
+HAVING COUNT(*) > 2;
 ```
 
-**Output:**
+## Output:
 
-![Output9](output.png)
+<img width="842" height="367" alt="image" src="https://github.com/user-attachments/assets/8c4e3826-ec03-4e3e-bc8f-5aa77b51e44d" />
 
-**Question 10**
----
--- Paste Question 10 here
 
-```sql
--- Paste your SQL code below for Question 10
+## Question 10:
+
+Display departments whose total salary is greater than 150000.
+
+```
+SELECT department, SUM(salary) AS total_salary
+FROM staff
+GROUP BY department
+HAVING SUM(salary) > 150000;
+
 ```
 
-**Output:**
+## Output:
 
-![Output10](output.png)
+<img width="906" height="347" alt="image" src="https://github.com/user-attachments/assets/e43a4f1b-8953-4211-80cb-e7e000b1d200" />
+
 
 
 ## RESULT
