@@ -1,5 +1,8 @@
 # Experiment 4: Aggregate Functions, Group By and Having Clause
 
+### Name Mohammed Ibrahim MN 
+### Roll No 212223100034
+
 ## AIM
 To study and implement aggregate functions, GROUP BY, and HAVING clause with suitable examples.
 
